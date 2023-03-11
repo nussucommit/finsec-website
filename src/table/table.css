@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.rfp-table {
+    margin-top: 5%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    text-align: justify;
+    table-layout: auto;
+    width: 100%;
+}
+
+th {
+    line-height: 3rem;
+}
+
+td {
+    line-height: 4rem;
+}
+
+.btn {
+    width: 8rem;
+    font-size: 1.35rem;
+    text-align: center;
+    margin-right: 1.5%;
+}
+
+.btn-primary {
+    background-color: rgba(11, 183, 131, 0.34);
+    color:rgba(4, 151, 102, 1);
+    border: none;
+    font-weight: 400;
+}
+
+.btn-primary:hover {
+    background-color: rgba(11, 183, 131, 0.66);  
+    font-weight: 600;
+    transition: all ease-in-out .3s;
+}
+
+.btn-danger {
+    background-color: rgba(250, 90, 125, 0.34);
+    color: #B22234;
+    border: none;
+    font-weight: 400;
+}
+
+.btn-danger:hover {
+    background-color: rgba(250, 90, 125, 1);
+    font-weight: 600;
+    transition: all ease-in-out .3s;
+}
