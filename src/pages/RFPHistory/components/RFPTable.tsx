@@ -29,7 +29,7 @@ const RFPTable = ({ rfp_list }: RFPTableProps) => {
       <td>{rfp.date_submitted.toLocaleDateString()}</td>
       <td>{rfp.status}</td>
       <td>
-        <Group>
+        <Group className="btn-group">
             <Button variant="light" color="blue" onClick={() => onViewRFP(rfp)} >{ButtonNames.view_rfp}</Button>
             <Button variant="light" color="red" onClick={() => onDelete(rfp)} >{ButtonNames.delete}</Button>
         </Group>
@@ -45,14 +45,14 @@ const RFPTable = ({ rfp_list }: RFPTableProps) => {
       className="rfp-table"
     >
       <thead>
-        <tr>
+        <tr className="rfp-table-header">
           <th>{TableHeaders.rfp_number}</th>
           <th>{TableHeaders.date_submitted}</th>
           <th>{TableHeaders.status}</th>
           <th>{TableHeaders.details}</th>
         </tr>
       </thead>
-      <tbody>{rfpRows}</tbody>
+      <tbody className="rfp-table-body">{rfpRows}</tbody>
     </Table>
   );
 };
