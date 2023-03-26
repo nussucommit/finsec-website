@@ -1,13 +1,18 @@
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import RFPHistoryPage from 'pages/RFPHistory';
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "pages/Login";
+import Signup from "pages/Signup";
 
 function App() {
-
   return (
-    <div className="App">
-      <RFPHistoryPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<div>L:o</div>} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
