@@ -7,15 +7,28 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
-import { useForm } from "@mantine/form";
+import { useForm, zodResolver } from "@mantine/form";
+import { z } from "zod";
 
-export type SignupFields = {
-  name: string;
-  committee: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+const schema = z
+  .object({
+    name: z.string().nonempty({ message: "Required" }),
+    committee: z.string().nonempty({ message: "Required" }),
+    email: z.string().email().nonempty({ message: "Required" }),
+    password: z.string().min(6),
+    confirmPassword: z.string().nonempty({ message: "Required" }),
+  })
+  .superRefine(({ confirmPassword, password }, ctx) => {
+    if (confirmPassword !== password) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Password did not match",
+        path: ["confirmPassword"],
+      });
+    }
+  });
+
+export type SignupFields = z.infer<typeof schema>;
 
 type Props = {
   onSubmit: (f: SignupFields) => void;
@@ -32,12 +45,14 @@ const Signup = (props: Props) => {
       password: "",
       confirmPassword: "",
     },
+
+    validate: zodResolver(schema),
   });
 
   return (
     <Stack m="md" w="50%">
       <Title order={1}>Welcome,</Title>
-      <form onSubmit={() => onSubmit(form.values)}>
+      <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
         <TextInput
           withAsterisk
           label="Name"

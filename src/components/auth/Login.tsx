@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "@mantine/form";
+import { useForm, zodResolver } from "@mantine/form";
 import {
   Button,
   Group,
@@ -8,11 +8,14 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
+import { z } from "zod";
 
-export type LoginFields = {
-  email: string;
-  password: string;
-};
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
+export type LoginFields = z.infer<typeof schema>;
 
 type Props = {
   onSubmit: (f: LoginFields) => void;
@@ -26,12 +29,14 @@ const Login = (props: Props) => {
       email: "",
       password: "",
     },
+
+    validate: zodResolver(schema),
   });
 
   return (
     <Stack m="md" w="50%">
       <Title order={1}>Welcome,</Title>
-      <form onSubmit={() => onSubmit(form.values)}>
+      <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
         <TextInput
           withAsterisk
           label="Email"
