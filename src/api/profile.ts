@@ -1,7 +1,7 @@
 import { UserCredential } from "firebase/auth";
-import { auth, db } from "../firebase/config";
+import { auth, db } from "firebase/config";
 import { doc, setDoc, updateDoc, getDoc } from "@firebase/firestore";
-import { UserProfile } from "../types/profile";
+import { UserProfile } from "types/profile";
 
 const USER_PATH = "users";
 

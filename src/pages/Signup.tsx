@@ -1,8 +1,8 @@
+import React from "react";
 import { FirebaseError } from "firebase/app";
 import { useNotification } from "hooks/notification";
-import React from "react";
-import { signUp } from "../api/auth";
-import Signup, { SignupFields } from "../components/auth/Signup";
+import { signUp } from "api/auth";
+import Signup, { SignupFields } from "components/auth/Signup";
 
 const SignupPage = () => {
   const { showSuccess, showError } = useNotification();

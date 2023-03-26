@@ -1,8 +1,8 @@
+import React from "react";
 import { login } from "api/auth";
 import { FirebaseError } from "firebase/app";
 import { useNotification } from "hooks/notification";
-import React from "react";
-import Login, { LoginFields } from "../components/auth/Login";
+import Login, { LoginFields } from "components/auth/Login";
 
 const LoginPage = () => {
   const { showSuccess, showError } = useNotification();

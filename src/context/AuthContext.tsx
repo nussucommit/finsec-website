@@ -1,6 +1,6 @@
 import React from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/config";
+import { auth } from "firebase/config";
 import { getUserData } from "api/profile";
 import { UserProfile } from "types/profile";
 
