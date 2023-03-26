@@ -1,16 +1,26 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "pages/Login";
 import Signup from "pages/Signup";
+import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
+import { HOME_PATH, LOGIN_PATH, SIGNUP_PATH } from "routes/constants";
+import { AuthProvider } from "context/AuthContext";
+import { getUserData } from "api/profile";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<div>L:o</div>} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-      </Routes>
-    </BrowserRouter>
+    <MantineProvider withNormalizeCSS withGlobalStyles>
+      <AuthProvider>
+        <Notifications />
+        <BrowserRouter>
+          <Routes>
+            <Route path={HOME_PATH} element={<></>} />
+            <Route path={LOGIN_PATH} element={<Login />} />
+            <Route path={SIGNUP_PATH} element={<Signup />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </MantineProvider>
   );
 }
 
