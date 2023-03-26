@@ -13,8 +13,9 @@ import { z } from "zod";
 const schema = z
   .object({
     name: z.string().nonempty({ message: "Required" }),
-    committee: z.string().nonempty({ message: "Required" }),
+    subcomms: z.string().nonempty({ message: "Required" }),
     email: z.string().email().nonempty({ message: "Required" }),
+    contactNum: z.string().regex(new RegExp(/^\d+$/), "Invalid phone number"),
     password: z.string().min(6),
     confirmPassword: z.string().nonempty({ message: "Required" }),
   })
@@ -32,15 +33,17 @@ export type SignupFields = z.infer<typeof schema>;
 
 type Props = {
   onSubmit: (f: SignupFields) => void;
+  isLoading: boolean;
 };
 
 const Signup = (props: Props) => {
-  const { onSubmit } = props;
+  const { onSubmit, isLoading } = props;
 
   const form = useForm<SignupFields>({
     initialValues: {
       name: "",
-      committee: "",
+      subcomms: "",
+      contactNum: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -74,6 +77,13 @@ const Signup = (props: Props) => {
           mt="md"
           {...form.getInputProps("email")}
         />
+        <TextInput
+          withAsterisk
+          label="Contact Number"
+          placeholder="12341234"
+          mt="md"
+          {...form.getInputProps("contactNum")}
+        />
         <PasswordInput
           withAsterisk
           label="Password"
@@ -90,7 +100,9 @@ const Signup = (props: Props) => {
         />
 
         <Group mt="lg" position="right">
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit" loading={isLoading}>
+            Sign Up
+          </Button>
         </Group>
       </form>
     </Stack>

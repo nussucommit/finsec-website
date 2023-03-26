@@ -19,10 +19,11 @@ export type LoginFields = z.infer<typeof schema>;
 
 type Props = {
   onSubmit: (f: LoginFields) => void;
+  isLoading: boolean;
 };
 
 const Login = (props: Props) => {
-  const { onSubmit } = props;
+  const { onSubmit, isLoading } = props;
 
   const form = useForm<LoginFields>({
     initialValues: {
@@ -52,7 +53,9 @@ const Login = (props: Props) => {
         />
 
         <Group mt="lg" position="right">
-          <Button type="submit">Login</Button>
+          <Button type="submit" loading={isLoading}>
+            Login
+          </Button>
         </Group>
       </form>
     </Stack>
