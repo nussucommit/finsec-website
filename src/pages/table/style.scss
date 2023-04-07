@@ -1,17 +1,17 @@
-
-.rfp-history-page {
+.page {
     padding: 2rem;
-
 }
 
-.rfp-table {
+.table {
     font-family: 'Poppins';
     line-height: 27px;
     padding: 2rem;
     margin: 2rem;
     text-align: center;
-    .rfp-table-header {
+
+    .table-header {
         background-color: rgba(239, 239, 239, 0.6);
+
         th {
             text-align: center;
             font-style: normal;
@@ -19,8 +19,8 @@
             font-size: 1.5rem;
         }
     }
-    
-    .rfp-table-body {
+
+    .table-body {
         tr {
             td {
                 font-size: 1.2rem;
@@ -30,6 +30,7 @@
         .btn-group {
             text-align: center;
             margin: 0 auto;
+
             Button {
                 font-size: 1.2rem;
             }
