@@ -1,17 +1,16 @@
 [
     {
-      "rfp_number": 0,
+      "rfp_number": "RFPCMIT133",
       "date_submitted": "2022-01-23T09:04:45.904Z",
-      "status": "APPROVED"
+      "status": "PENDING",
+      "submitter": "Daniel Tan",
+      "executive": "Ricky"
     },
     {
-      "rfp_number": 1,
+      "rfp_number": "RFPCMIT132",
       "date_submitted": "2022-03-23T09:04:45.904Z",
-      "status": "APPROVED"
-    },
-    {
-      "rfp_number": 2,
-      "date_submitted": "2022-05-23T09:04:45.904Z",
-      "status": "REJECTED"
+      "status": "PENDING",
+      "submitter": "Daniel Tan",
+      "executive": "Ricky"
     }
 ]

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import dummyRFPs from "../../dummy/dummyRFPs.json";
-import RFPHistoryTable from "pages/table/rfp/RFPHistoryTable";
+import RejectedRFPTable from "pages/table/rfp/RejectedRFPTable";
 
-const RFPHistoryPage = () => {
+const RejectedRFP = () => {
   // set up states here
   const [rfps, setRFPs] = useState<RFP[]>([]);
 
@@ -20,10 +20,10 @@ const RFPHistoryPage = () => {
   return (
     <div className="page" >
       { /* can delete the title of the page */ }
-      <h1>RFP History Page</h1>
-      <RFPHistoryTable rfp_list={rfps}/>
+      <h1>Rejected RFP</h1>
+      <RejectedRFPTable rfp_list={rfps}/>
     </div>
   );
 };
 
-export default RFPHistoryPage;
+export default RejectedRFP;

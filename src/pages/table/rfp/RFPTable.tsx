@@ -1,4 +1,7 @@
+//https://www.figma.com/file/oLAkh2SB1j30ih53E6HFyq/Financial-Secretary-Claiming-Website?node-id=202-224&t=ccxtLLnHPMViuz6A-0
+
 import { Table, Button, Group } from "@mantine/core";
+import '../style.scss';
 
 type RFPTableProps = {
   rfp_list: RFP[];
@@ -8,19 +11,20 @@ const TableHeaders = {
   rfp_number: "RFP NUMBERS",
   date_submitted: "Date Submitted",
   status: "Status",
-  details: "Details",
+  submitted_by: "Submitted By",
+  action: "Action",
 };
 
 const ButtonNames = {
-    view_rfp: "View RFP",
+    approve: "Approve",
     delete: "Delete"
 }
 
 // TODO
-const onViewRFP = (rfp: RFP) => {};
+const onApproveRFP = (rfp: RFP) => {};
 
 // TODO
-const onDelete = (rfp: RFP) => {};
+const onDeleteRFP = (rfp: RFP) => {};
 
 const RFPTable = ({ rfp_list }: RFPTableProps) => {
   const rfpRows = rfp_list.map((rfp) => (
@@ -28,10 +32,11 @@ const RFPTable = ({ rfp_list }: RFPTableProps) => {
       <td>{rfp.rfp_number}</td>
       <td>{rfp.date_submitted.toLocaleDateString()}</td>
       <td>{rfp.status}</td>
+      <td><a href="https://www.google.com">{rfp.submitter}</a></td>
       <td>
         <Group className="btn-group">
-            <Button variant="light" color="blue" onClick={() => onViewRFP(rfp)} >{ButtonNames.view_rfp}</Button>
-            <Button variant="light" color="red" onClick={() => onDelete(rfp)} >{ButtonNames.delete}</Button>
+            <Button variant="light" color="green" onClick={() => onApproveRFP(rfp)} >{ButtonNames.approve}</Button>
+            <Button variant="light" color="red" onClick={() => onDeleteRFP(rfp)} >{ButtonNames.delete}</Button>
         </Group>
       </td>
     </tr>
@@ -42,17 +47,18 @@ const RFPTable = ({ rfp_list }: RFPTableProps) => {
       verticalSpacing="md"
       horizontalSpacing="md"
       highlightOnHover
-      className="rfp-table"
+      className="table"
     >
       <thead>
-        <tr className="rfp-table-header">
+        <tr className="table-header">
           <th>{TableHeaders.rfp_number}</th>
           <th>{TableHeaders.date_submitted}</th>
           <th>{TableHeaders.status}</th>
-          <th>{TableHeaders.details}</th>
+          <th>{TableHeaders.submitted_by}</th>
+          <th>{TableHeaders.action}</th>
         </tr>
       </thead>
-      <tbody className="rfp-table-body">{rfpRows}</tbody>
+      <tbody className="table-body">{rfpRows}</tbody>
     </Table>
   );
 };
