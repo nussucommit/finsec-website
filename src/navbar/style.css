@@ -1,0 +1,14 @@
+.nav-tabs {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.nav-tabs .nav-link {
+  text-decoration: none;
+  font-size: 1.6rem;
+  padding: 1.5rem;
+  color: #0095FF;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  margin: 1.2rem;
+}/*# sourceMappingURL=style.css.map */
