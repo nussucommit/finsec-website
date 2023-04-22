@@ -1,12 +1,9 @@
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import RFPHistoryPage from 'pages/RFPHistory';
+import NavBar from 'navbar';
 
 function App() {
-
   return (
-    <div className="App">
-      <RFPHistoryPage />
+    <div>
+      <NavBar />
     </div>
   );
 }
